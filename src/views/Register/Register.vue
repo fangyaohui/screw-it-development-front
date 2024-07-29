@@ -63,7 +63,7 @@ const onSubmit = () => {
 
 <style scoped>
 .register-container {
-  background-image: url('src/assets/img/register_backword.png'); /* 替换为你的背景图片路径 */
+  background-image: url('src/assets/img/register_background.png'); /* 替换为你的背景图片路径 */
   background-size: cover;
   display: flex;
   justify-content: center;

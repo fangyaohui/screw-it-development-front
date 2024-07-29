@@ -27,7 +27,7 @@
 
 import {reactive, ref} from "vue";
 import {loginUserApi} from "@/api/user/register";
-import { cloneDeep, debounce } from 'lodash-es'
+// import { cloneDeep, debounce } from 'lodash-es'
 
 const form = reactive({
   userName: '',
@@ -57,7 +57,7 @@ const onSubmit = () => {
 
 <style scoped>
 .login-container {
-  background-image: url('src/assets/img/login_backword.png'); /* 替换为你的背景图片路径 */
+  background-image: url('src/assets/img/login_background.png'); /* 替换为你的背景图片路径 */
   background-size: cover;
   display: flex;
   justify-content: center;
