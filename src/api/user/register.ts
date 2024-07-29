@@ -3,9 +3,16 @@ import request from '@/utils/axios'
 const REQUEST_ORIGIN = '/user'
 
 export const registerUserApi = (data): Promise<IResponse> => {
-    return request({
+    return request.get({
         url: REQUEST_ORIGIN + '/test',
         methods: "GET",
+        data
+    })
+}
+
+export const loginUserApi = (data): Promise<IResponse> => {
+    return request.post({
+        url: '/login/signIn',
         data
     })
 }

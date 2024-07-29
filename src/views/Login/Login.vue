@@ -2,7 +2,7 @@
   <div class="login-container">
     <div class="login-form-wrapper">
       <h2 class="login-title">SIDN用户登录</h2>
-      <el-form :model="form" ref="form" label-width="90px" class="login-form">
+      <el-form :model="form" ref="formRef" label-width="90px" class="login-form">
         <el-form-item label="用户名" prop="username" :rules="[{ required: true, message: '请输入用户名', trigger: 'blur' }]">
           <el-input v-model="form.username" placeholder="请输入用户名" class="custom-input"></el-input>
         </el-form-item>
@@ -23,38 +23,36 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      form: {
-        username: '',
-        password: ''
-      }
-    };
-  },
-  methods: {
-    onSubmit() {
-      this.$refs.form.validate((valid) => {
-        if (valid) {
-          console.log('表单验证通过');
-          // 提交登录信息
-        } else {
-          console.log('表单验证失败');
-          return false;
-        }
-      });
-    },
-    onRegister() {
-      // 跳转到注册页面
-      console.log('跳转到注册页面');
-    },
-    onForgotPassword() {
-      // 跳转到忘记密码页面
-      console.log('跳转到忘记密码页面');
-    }
-  }
+<script setup>
+
+import {reactive, ref} from "vue";
+import {loginUserApi} from "@/api/user/register";
+import { cloneDeep, debounce } from 'lodash-es'
+
+const form = reactive({
+  userName: '',
+  password: '',
+  token: ' '
+});
+
+const formRef = ref(null);
+
+const onSubmit = () => {
+
+  const postParams = cloneDeep(formRef.value)
+  console.log(postParams.value);
+  loginUserApi(form)
+  // formRef.value.validate((valid) => {
+  //   if (valid) {
+  //     console.log('表单验证通过');
+  //     // 提交注册信息
+  //   } else {
+  //     console.log('表单验证失败');
+  //     return false;
+  //   }
+  // });
 };
+
 </script>
 
 <style scoped>
