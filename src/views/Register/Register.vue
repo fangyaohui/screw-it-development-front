@@ -1,8 +1,8 @@
 <template>
   <div class="register-container">
-    <el-form :model="form" ref="form" label-width="120px" class="register-form">
+    <el-form :model="form" ref="formRef" label-width="120px" class="register-form">
       <el-form-item label="用户名" prop="username" :rules="[{ required: true, message: '请输入用户名', trigger: 'blur' }]">
-        <el-input v-model="form.username" placeholder="请输入用户名" class="custom-input"></el-input>
+        <el-input v-model="form.username" placeholder="请输入用户名"></el-input>
       </el-form-item>
       <el-form-item label="密码" prop="password" :rules="[{ required: true, message: '请输入密码', trigger: 'blur' }]">
         <el-input type="password" v-model="form.password" placeholder="请输入密码" class="custom-input"></el-input>
@@ -29,34 +29,36 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      form: {
-        username: '',
-        password: '',
-        confirmPassword: '',
-        email: '',
-        phone: '',
-        captcha: ''
-      }
-    };
-  },
-  methods: {
-    onSubmit() {
-      this.$refs.form.validate((valid) => {
-        if (valid) {
-          console.log('表单验证通过');
-          // 提交注册信息
-        } else {
-          console.log('表单验证失败');
-          return false;
-        }
-      });
-    }
-  }
+<script setup>
+
+import { reactive, ref } from 'vue';
+import {registerUserApi} from "@/api/user/register";
+
+const form = reactive({
+  username: '',
+  password: '',
+  confirmPassword: '',
+  email: '',
+  phone: '',
+  captcha: ''
+});
+
+const formRef = ref(null);
+
+const onSubmit = () => {
+  console.log(form.username);
+  registerUserApi("fasdfasd")
+  // formRef.value.validate((valid) => {
+  //   if (valid) {
+  //     console.log('表单验证通过');
+  //     // 提交注册信息
+  //   } else {
+  //     console.log('表单验证失败');
+  //     return false;
+  //   }
+  // });
 };
+
 </script>
 
 <style scoped>
