@@ -22,7 +22,7 @@
       <el-form-item>
         <div class="button-container">
           <el-button type="primary" @click="onSubmit" class="custom-button">注册</el-button>
-          <el-button type="primary" @click="onSubmit" class="custom-button">登录</el-button>
+          <el-button type="primary" @click="toLogin" class="custom-button">登录</el-button>
         </div>
       </el-form-item>
     </el-form>
@@ -33,6 +33,7 @@
 
 import { reactive, ref } from 'vue';
 import {registerUserApi} from "@/api/user/register";
+import router from "@/router/index";
 
 const form = reactive({
   username: '',
@@ -58,6 +59,10 @@ const onSubmit = () => {
   //   }
   // });
 };
+
+const toLogin = () =>{
+  router.push('/login')
+}
 
 </script>
 

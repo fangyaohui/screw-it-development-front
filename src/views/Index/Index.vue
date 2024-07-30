@@ -191,7 +191,7 @@ body, html {
 /* 搜索框 */
 .floating-search-bar {
   position: fixed;
-  top: 8%;
+  top: 100px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;

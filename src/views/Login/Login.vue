@@ -16,6 +16,7 @@
           <div class="button-container">
             <el-button type="text" @click="onRegister" class="link-button">用户注册</el-button>
             <el-button type="text" @click="onForgotPassword" class="link-button">忘记密码</el-button>
+            <el-button type="text" @click="toIndex" class="link-button">跳转首页</el-button>
           </div>
         </el-form-item>
       </el-form>
@@ -27,6 +28,7 @@
 
 import {reactive, ref} from "vue";
 import {loginUserApi} from "@/api/user/register";
+import router from "@/router/index";
 // import { cloneDeep, debounce } from 'lodash-es'
 
 const form = reactive({
@@ -36,6 +38,10 @@ const form = reactive({
 });
 
 const formRef = ref(null);
+
+const onRegister = () => {
+  router.push('/register');
+}
 
 const onSubmit = () => {
 
@@ -52,6 +58,10 @@ const onSubmit = () => {
   //   }
   // });
 };
+
+const toIndex = () => {
+  router.push('/index')
+}
 
 </script>
 

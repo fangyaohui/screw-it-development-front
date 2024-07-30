@@ -6,18 +6,23 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'index',
-      component: () => import('../views/Index/Index.vue')
+      name: 'index1',
+      component: () => import('@/views/Index/Index.vue')
+    },
+    {
+      path: '/index',
+      name: 'index2',
+      component: () => import('@/views/Index/Index.vue')
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/Login/Login.vue')
+      component: () => import('@/views/Login/Login.vue')
     },
     {
       path: '/register',
       name: 'register',
-      component: () => import('../views/Register/Register.vue')
+      component: () => import('@/views/Register/Register.vue')
     }
   ]
 })
