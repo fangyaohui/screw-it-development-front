@@ -40,6 +40,13 @@
           >
             发布
           </router-link>
+
+          <router-link
+              :to= " '/screw/blog/addBlogMDFile' "
+              class="publish-button"
+          >
+            上传文件
+          </router-link>
         </div>
 
       </div>

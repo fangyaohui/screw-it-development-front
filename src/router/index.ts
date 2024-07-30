@@ -23,7 +23,12 @@ const router = createRouter({
       path: '/register',
       name: 'register',
       component: () => import('@/views/Register/Register.vue')
-    }
+    },
+    {
+      path: '/screw/blog/addBlogMDFile',
+      name: 'addBlogMDFile',
+      component: () => import('@/views/Blog/AddBlogMDFile.vue')
+    },
   ]
 })
 
