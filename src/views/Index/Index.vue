@@ -42,7 +42,7 @@
           </router-link>
 
           <router-link
-              :to= " '/screw/blog/addBlogMDFile' "
+              :to= " '/front/blog/addBlogMDFile' "
               class="publish-button"
           >
             上传文件

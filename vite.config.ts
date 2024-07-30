@@ -25,7 +25,7 @@ export default defineConfig({
     open: true, //启动后是否自动打开浏览器
     proxy:{
       '/screw':{
-        target: 'http://localhost:51234',
+        target: 'http://localhost:61237',
         changeOrigin: true,
         secure: false, // 如果是https接口，需要配置这个参数
         // agent: new http.Agent(),

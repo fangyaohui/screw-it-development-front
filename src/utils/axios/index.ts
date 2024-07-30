@@ -23,7 +23,7 @@ type IResPromise<T = any> = Promise<IResponse<T>>
 
 // 创建axios实例
 const service = axios.create({
-    baseURL: "/screw", // api 的 base_url
+    baseURL: "/screw/api", // api 的 base_url
     timeout: 3*1000, // 请求超时时间
     maxBodyLength: 10000,
     maxContentLength: 10000,
