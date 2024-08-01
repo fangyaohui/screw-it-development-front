@@ -20,11 +20,11 @@
       </el-upload>
       <el-upload
           drag
+          multiple
+          directory
           :headers="upload.headers"
           :action="upload.url"
-          accept=".md"
           :on-success="handleSuccess"
-          :before-upload="beforeUpload"
           auto-upload:false
           :show-file-list="true"
           style="border-radius: 15px;"
