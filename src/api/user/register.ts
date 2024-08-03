@@ -10,12 +10,6 @@ export const registerUserApi = (data): Promise<IResponse> => {
     })
 }
 
-export const loginUserApi = (data): Promise<IResponse> => {
-    return request.post({
-        url: '/login/signIn',
-        data
-    })
-}
 
 // export const addSingleUserApi = (data): Promise<IResponse> => {
 //     return request.post({

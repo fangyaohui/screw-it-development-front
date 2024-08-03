@@ -3,8 +3,8 @@
     <div class="login-form-wrapper">
       <h2 class="login-title">SIDN用户登录</h2>
       <el-form :model="form" ref="formRef" label-width="90px" class="login-form">
-        <el-form-item label="用户名" prop="username" :rules="[{ required: true, message: '请输入用户名', trigger: 'blur' }]">
-          <el-input v-model="form.username" placeholder="请输入用户名" class="custom-input"></el-input>
+        <el-form-item label="用户名" prop="userName" :rules="[{ required: true, message: '请输入用户名', trigger: 'blur' }]">
+          <el-input v-model="form.userName" placeholder="请输入用户名" class="custom-input"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password" :rules="[{ required: true, message: '请输入密码', trigger: 'blur' }]">
           <el-input type="password" v-model="form.password" placeholder="请输入密码" class="custom-input"></el-input>
@@ -27,7 +27,7 @@
 <script setup>
 
 import {reactive, ref} from "vue";
-import {loginUserApi} from "@/api/user/register";
+import {loginUserApi} from "@/api/user/login";
 import router from "@/router/index";
 // import { cloneDeep, debounce } from 'lodash-es'
 
@@ -45,18 +45,36 @@ const onRegister = () => {
 
 const onSubmit = () => {
 
-  const postParams = cloneDeep(formRef.value)
-  console.log(postParams.value);
-  loginUserApi(form)
-  // formRef.value.validate((valid) => {
-  //   if (valid) {
-  //     console.log('表单验证通过');
-  //     // 提交注册信息
+  return new Promise(async (resolve) => {
+    try {
+      const res = await loginUserApi(form);
+      // alert(JSON.stringify(res))
+      if (res.data.code === 0) {
+        const token = res.data.data;
+        localStorage.setItem('token',token);
+        router.push('/index')
+      } else {
+        alert("服务器故障，请稍后再试")
+      }
+    } catch (e) {
+      alert("错误请稍后再试" + e)
+    }
+  })
+  //
+  // try {
+  //   const res = loginUserApi(form);
+  //   alert(JSON.stringify(res))
+  //   if (res.value.code === 0) {
+  //     const token = res.value.data;
+  //     localStorage.setItem('token',token);
+  //     router.push('/index')
   //   } else {
-  //     console.log('表单验证失败');
-  //     return false;
+  //     alert("服务器故障，请稍后再试")
   //   }
-  // });
+  // } catch (e) {
+  //   alert("错误请稍后再试" + e)
+  // }
+
 };
 
 const toIndex = () => {
