@@ -1,5 +1,5 @@
 <template>
-  <el-container style="height: 100vh; padding-top: 50px;">
+  <el-container style="height: 80vh; padding-top: 50px;">
     <el-row justify="center" align="top" style="width: 90%; margin: 0 auto;">
       <el-col :span="12" style="padding: 10px;">
         <div class="big-box">
