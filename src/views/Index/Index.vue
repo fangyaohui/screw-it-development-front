@@ -12,7 +12,7 @@
 
     <el-row style="padding: 5%">
       <el-col :span="24" style="padding-bottom: 10px;">
-        <Headlines/>
+        <Headlines v-if="dataFetched" :info="headline"/>
       </el-col>
 
       <el-col :span="18">
@@ -57,7 +57,30 @@
 
 import NavigationBar from '@/components/NavigationBar.vue'
 import Headlines from '@/components/Headlines.vue'
+import {onMounted, ref, onBeforeMount} from "vue";
+import {getHeadlineBriefInfoApi, getImageApi} from "@/api/blog/index";
 
+const headline = ref();
+const imageUrl = ref('');
+const dataFetched = ref(false); // 用于判断数据是否已加载
+
+// 使用 onMounted 钩子
+onMounted(async () => {
+  try {
+    const res = await getHeadlineBriefInfoApi();
+    // alert(JSON.stringify(headline.value))
+    if (res.data.code === 0) {
+      headline.value = res.data.data;
+      console.log(JSON.stringify(headline.value));
+      dataFetched.value = true;
+      // alert(JSON.stringify(headline.value[0]))
+    } else {
+      alert('服务器故障，请稍后再试');
+    }
+  } catch (e) {
+    alert('错误请稍后再试: ' + e);
+  }
+});
 </script>
 
 <style scoped>
