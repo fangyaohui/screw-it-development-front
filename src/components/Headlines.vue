@@ -54,9 +54,7 @@ const props = defineProps({
   }
 });
 
-const baseURL = 'http://localhost:9000/screw-it-development-blog-buck';
-
-alert(props.info)
+const baseURL = 'http://localhost:9000/screw-it-development-blog-buck/';
 
 //
 // const headline = ref();
