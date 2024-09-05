@@ -21,6 +21,7 @@
           >
             登录
           </router-link>
+
           <router-link
               v-else
               :to="`/user/${userId}`"
@@ -77,16 +78,26 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import {onMounted, ref, onBeforeMount} from "vue";
 
 // 假设的用户数据
 const isLoggedIn = ref(false); // 用户登录状态
 const searchQuery = ref('');
 
+const checkLoginStatus = () => {
+  const token = localStorage.getItem('token');
+  isLoggedIn.value = !!token;  // 如果 token 存在则为 true，否则为 false
+};
+
+
 const handleSearch = () => {
   console.log('搜索内容:', searchQuery.value);
   // 这里可以添加搜索逻辑
 };
+
+onBeforeMount(() => {
+  checkLoginStatus();
+});
 
 </script>
 
@@ -172,6 +183,7 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
 .publish-button {
@@ -189,6 +201,7 @@ body, html {
   border: none;
   cursor: pointer;
   transition: transform 0.3s ease; /* 平滑过渡效果 */
+
 }
 
 .publish-button:hover {
