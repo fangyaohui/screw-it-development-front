@@ -1,0 +1,63 @@
+<template>
+  <div class="blog-container">
+    <div v-html="blogContent" class="markdown-content"></div>
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+import MarkdownIt from 'markdown-it';
+import {getBlogInfoApi} from "@/api/blog/index";
+
+const blogContent = ref('');
+const mdParser = new MarkdownIt();
+
+const fetchBlog = async (id) => {
+  try {
+    const response = await getBlogInfoApi({
+      blogId:'kxiTHJEBVE6-k_TXtt67'
+    });
+    blogContent.value = mdParser.render(response.data.data.content); // 解析Markdown
+  } catch (error) {
+    console.error('获取博客内容失败', error);
+  }
+};
+
+onMounted(() => {
+  const blogId = 'kxiTHJEBVE6-k_TXtt67'; // 假设我们读取ID为1的博客
+  fetchBlog(blogId);
+});
+</script>
+
+<style scoped>
+.markdown-content {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.markdown-content h1, .markdown-content h2, .markdown-content h3 {
+  margin-top: 1.5em;
+}
+
+.markdown-content p {
+  margin: 1em 0;
+}
+
+.markdown-content code {
+  background-color: #f4f4f4;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.markdown-content pre {
+  background-color: #282c34;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+</style>

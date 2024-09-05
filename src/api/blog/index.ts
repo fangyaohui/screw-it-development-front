@@ -14,3 +14,10 @@ export const getImageApi = (params): Promise<IResponse> => {
         params
     })
 }
+
+export const getBlogInfoApi = (params): Promise<IResponse> => {
+    return request.get({
+        url: REQUEST_ORIGIN + `/getBlogInfoByBlogId`,
+        params
+    })
+}

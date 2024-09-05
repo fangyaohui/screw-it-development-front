@@ -29,6 +29,11 @@ const router = createRouter({
       name: 'addBlogMDFile',
       component: () => import('@/views/Blog/AddBlogMDFile.vue')
     },
+    {
+      path: '/front/blog/detail',
+      name: 'BlogInfo',
+      component: () => import('@/views/Blog/BlogInfo.vue')
+    },
   ]
 })
 

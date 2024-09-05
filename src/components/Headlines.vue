@@ -3,36 +3,55 @@
     <el-row justify="center" align="top" style="width: 90%; margin: 0 auto;">
       <el-col :span="12" style="padding: 10px;">
         <div class="big-box">
-          <img :src="baseURL + info[0].image" alt="Big Image" class="image">
-          <p>{{ info[0].title }}</p>
+          <a :href="blogBaseUrl + info[0].id" class="no-underline">
+            <img :src="baseURL + info[0].image" alt="Big Image" class="image">
+            <p>{{ info[0].title }}</p>
+          </a>
+
+
         </div>
       </el-col>
       <el-col :span="12">
         <el-row>
           <el-col :span="12" style="padding: 10px;">
             <div class="small-box">
-              <img :src="baseURL + info[1].image" alt="Small Image 1" class="image">
-              <p>{{ info[1].title }}</p>
+              <a :href="blogBaseUrl + info[1].id" class="no-underline">
+                <img :src="baseURL + info[1].image" alt="Small Image 1" class="image">
+                <p>{{ info[1].title }}</p>
+              </a>
+
             </div>
           </el-col>
           <el-col :span="12" style="padding: 10px;">
             <div class="small-box">
-              <img :src="baseURL + info[2].image" alt="Small Image 2" class="image">
-              <p>{{ info[2].title }}</p>
+              <a :href="blogBaseUrl + info[2].id" class="no-underline">
+                <img :src="baseURL + info[2].image" alt="Small Image 2" class="image">
+                <p>{{ info[2].title }}</p>
+              </a>
+
+
             </div>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="12" style="padding: 10px;">
             <div class="small-box">
-              <img :src="baseURL + info[3].image" alt="Small Image 3" class="image">
-              <p>{{ info[3].title }}</p>
+              <a :href="blogBaseUrl + info[3].id" class="no-underline">
+                <img :src="baseURL + info[3].image" alt="Small Image 3" class="image">
+                <p>{{ info[3].title }}</p>
+              </a>
+
+
             </div>
           </el-col>
           <el-col :span="12" style="padding: 10px;">
             <div class="small-box">
-              <img :src="baseURL + info[4].image" alt="Small Image 4" class="image">
-              <p>{{ info[4].title }}</p>
+              <a :href="blogBaseUrl + info[4].id" class="no-underline">
+                <img :src="baseURL + info[4].image" alt="Small Image 4" class="image">
+                <p>{{ info[4].title }}</p>
+              </a>
+
+
             </div>
           </el-col>
         </el-row>
@@ -55,6 +74,7 @@ const props = defineProps({
 });
 
 const baseURL = 'http://localhost:9000/screw-it-development-blog-buck/';
+const blogBaseUrl = '/front/blog/detail?blogId=';
 
 //
 // const headline = ref();
@@ -147,5 +167,24 @@ p {
   margin-top: 10px;
   font-size: 18px;
   font-family: 'KaiTi', serif;
+}
+
+a.no-underline {
+  text-decoration: none; /* 去除下划线 */
+  color: inherit; /* 继承父元素的颜色，点击后颜色不变 */
+}
+
+a.no-underline:visited {
+  color: inherit; /* 已访问链接颜色不变 */
+  text-decoration: none; /* 访问后不出现下划线 */
+}
+
+a.no-underline:hover {
+  text-decoration: none; /* 鼠标悬停时也不出现下划线 */
+}
+
+a.no-underline:active {
+  color: inherit; /* 点击时颜色不变 */
+  text-decoration: none; /* 点击时不出现下划线 */
 }
 </style>

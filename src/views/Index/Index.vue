@@ -1,5 +1,6 @@
 <template>
 
+
   <el-container style="height: 10px; padding-top: 50px;">
 
     <el-row>
@@ -10,41 +11,41 @@
       </el-col>
     </el-row>
 
-    <el-row style="padding: 5%">
+    <el-row style="padding: 5%" >
       <el-col :span="24" style="padding-bottom: 10px;">
         <Headlines v-if="dataFetched" :info="headline"/>
       </el-col>
 
-<!--      <el-col :span="18">-->
-<!--        <div class="left-box">-->
-<!--          <h2>左边大盒子</h2>-->
-<!--          <h2>右边小盒子</h2>-->
-<!--          <h2>右边小盒子</h2>-->
-<!--          <h2>右边小盒子</h2>-->
-<!--          <h2>右边小盒子</h2>-->
-<!--          <h2>右边小盒子</h2>-->
-<!--          <h2>右边小盒子</h2>-->
-<!--          <h2>右边小盒子</h2>-->
-<!--          <h2>右边小盒子</h2>-->
-<!--          <h2>右边小盒子</h2>-->
-<!--          <h2>右边小盒子</h2>-->
+      <el-col :span="18">
+        <div class="left-box">
+          <h2>左边大盒子</h2>
+          <h2>右边小盒子</h2>
+          <h2>右边小盒子</h2>
+          <h2>右边小盒子</h2>
+          <h2>右边小盒子</h2>
+          <h2>右边小盒子</h2>
+          <h2>右边小盒子</h2>
+          <h2>右边小盒子</h2>
+          <h2>右边小盒子</h2>
+          <h2>右边小盒子</h2>
+          <h2>右边小盒子</h2>
 
 
 
-<!--        </div>-->
-<!--      </el-col>-->
+        </div>
+      </el-col>
 
-<!--      <el-col :span="6" style="padding-left: 15px;">-->
-<!--        <div class="right-box">-->
-<!--          <h2>右边小盒子</h2>-->
-<!--          <h2>右边小盒子</h2>-->
-<!--          <h2>右边小盒子</h2>-->
-<!--          <h2>右边小盒子</h2>-->
-<!--          <h2>右边小盒子</h2>-->
-<!--          <h2>右边小盒子</h2>-->
-<!--          <h2>右边小盒子</h2>-->
-<!--        </div>-->
-<!--      </el-col>-->
+      <el-col :span="6" style="padding-left: 15px;">
+        <div class="right-box">
+          <h2>右边小盒子</h2>
+          <h2>右边小盒子</h2>
+          <h2>右边小盒子</h2>
+          <h2>右边小盒子</h2>
+          <h2>右边小盒子</h2>
+          <h2>右边小盒子</h2>
+          <h2>右边小盒子</h2>
+        </div>
+      </el-col>
 
     </el-row>
 
@@ -84,6 +85,14 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+.background-container {
+  background-image: url('src/assets/img/login_background.png');
+  background-size: cover;  /* 确保图片覆盖整个容器 */
+  background-position: center center;  /* 图片居中显示 */
+  background-attachment: fixed;  /* 背景图片在滚动时固定 */
+  background-repeat: no-repeat;  /* 背景图片不重复 */
+}
+
 
 /* 左右布局大盒子*/
 .left-box, .right-box {
