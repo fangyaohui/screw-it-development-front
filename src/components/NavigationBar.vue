@@ -84,10 +84,10 @@ import {onMounted, ref, onBeforeMount} from "vue";
 const isLoggedIn = ref(false); // 用户登录状态
 const searchQuery = ref('');
 
-const checkLoginStatus = () => {
-  const token = localStorage.getItem('token');
-  isLoggedIn.value = !!token;  // 如果 token 存在则为 true，否则为 false
-};
+// const checkLoginStatus = () => {
+//   const token = localStorage.getItem('token');
+//   isLoggedIn.value = !!token;  // 如果 token 存在则为 true，否则为 false
+// };
 
 
 const handleSearch = () => {
@@ -96,7 +96,7 @@ const handleSearch = () => {
 };
 
 onBeforeMount(() => {
-  checkLoginStatus();
+  // checkLoginStatus();
 });
 
 </script>

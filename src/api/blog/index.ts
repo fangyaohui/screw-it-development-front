@@ -21,3 +21,10 @@ export const getBlogInfoApi = (params): Promise<IResponse> => {
         params
     })
 }
+
+export const addBlogCommentApi = (data): Promise<IResponse> => {
+    return request.post({
+        url: REQUEST_ORIGIN + `/comment/addBlogComment`,
+        data
+    })
+}
